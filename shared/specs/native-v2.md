@@ -1,6 +1,6 @@
 # Drawry Native v2 interoperability contract
 
-Swift and Kotlin implementations are independent. This contract and `../fixtures/crypto-v2.json` are the interoperability boundary. All keys in fixtures are public test data.
+Android is the sole maintained platform as of 2026-10-19. This document preserves the existing DRY2/DRBK2 data contract; `../fixtures/crypto-v2.json` contains independent public test vectors. Platform UI resets do not change the storage format.
 
 ## Data
 
@@ -14,13 +14,13 @@ Edit recipe v1 contains clockwise quarter turns (0–3), a centered square crop 
 
 ### Edit recipe v2: photo ink
 
-New readers accept recipe versions 1 and 2. `strokes` defaults to `[]` when absent, including in Swift's custom decoder. Version 1 must have no strokes. The first committed ink stroke promotes a recipe to version 2; deleting strokes does not require a downgrade. Older native apps reject v2 via their existing recipe-version validation instead of silently dropping ink. No DB schema rewrite or DRBK2/DRY2 format change is required.
+New readers accept recipe versions 1 and 2. `strokes` defaults to `[]` when absent. Version 1 must have no strokes. The first committed ink stroke promotes a recipe to version 2; deleting strokes does not require a downgrade. Older native apps reject v2 via their existing recipe-version validation instead of silently dropping ink. No DB schema rewrite or DRBK2/DRY2 format change is required.
 
 Each stroke is `{id,color,width,points:[{x,y}]}`. `id` is a unique canonical UUID; `color` is opaque `#RRGGBB`; `width` is a finite fraction of the orientation-normalized original image's shorter dimension (valid range 0.001–0.05; UI presets 0.003/0.006/0.012). Points are finite normalized original-image coordinates in [0,1]. Maximum 256 strokes and 20,000 total points per image, at least one point per stroke. Duplicate IDs and malformed/oversized ink are rejected before restore commit.
 
 Coordinates are stored before quarter-turn rotation and center crop. The viewport inverts that transform when accepting input, so changing rotation/crop never rewrites or destroys hidden stroke points. Stroke widths follow the same image scale. Render order is transformed/filtered photo, then ink, then existing text/emoji overlays. Ink uses an opaque polyline with round caps and joins, with a filled round dot for one-point strokes; crop clips the drawing. Filters do not recolor ink. Erasing removes a whole intersected stroke and participates in recipe undo/redo. Pressure and video ink are unsupported.
 
-The displayed saved JPEG/thumbnail and exported share image include ink. The original is unchanged. Cross-platform backup transports both the editable stroke metadata and the already rendered encrypted image; the latter preserves exact saved pixels across platforms. Tiny antialiasing/font differences may appear only after rerendering on another OS.
+The displayed saved JPEG/thumbnail and exported share image include ink. The original is unchanged. Cross-platform backup transports both the editable stroke metadata and the already rendered encrypted image; the latter preserves exact saved pixels across readers. Tiny antialiasing/font differences may appear only after rerendering with another renderer.
 
 ## DRY2 encrypted files
 
@@ -53,7 +53,7 @@ Header: `version:2`, `iterations:210000`, `salt`, `passwordWrap`, `recoveryWrap`
 - PBKDF2-HMAC-SHA256(password UTF-8 bytes, salt, 210,000, 32 bytes), AAD `drawry-password-v2`.
 - A random 32-byte recovery key, AAD `drawry-recovery-v2`.
 
-Each wrapped value is `nonce[12] || ciphertext[32] || tag[16]`, encoded as Base64. Passwords have at least eight Unicode scalars when creating a backup, are not trimmed or normalized, and use identical UTF-8 bytes on both OSes. A supplied nonempty password takes precedence over the recovery key. Unknown versions and iteration counts are rejected.
+Each wrapped value is `nonce[12] || ciphertext[32] || tag[16]`, encoded as Base64. Passwords have at least eight Unicode scalars when creating a backup, are not trimmed or normalized, and use identical UTF-8 bytes for every reader. A supplied nonempty password takes precedence over the recovery key. Unknown versions and iteration counts are rejected.
 
 Decrypted payload: uint32 manifest length (1–32MiB), UTF-8 manifest JSON, then media file bytes in manifest order. Manifest has `snapshot` and `files:[{name,length,sha256}]`. `snapshot` includes version 2, creation time, all saved diaries including trash, and transferable preferences. Files are sorted by basename, exactly match referenced media files, and have unique names. SHA-256 values are lowercase hexadecimal. Each file is itself DRY2 encrypted. There is no ZIP archive or plaintext archive staging file.
 

@@ -6,10 +6,7 @@
 .toolchain/
 .build/
 **/build/
-**/.swiftpm/
 shared/fixtures/generated/
 coverage/
 *.jks
 *.keystore
-*.mobileprovision
-*.p12

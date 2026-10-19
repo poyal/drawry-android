@@ -1,26 +1,11 @@
-# Release preparation
+# Android 출시 준비
 
-## Build configuration
+현재는 디자인 탐색 및 화면 초기화 상태로 출시할 수 없다.
 
-- Bundle ID / application ID: `com.poyal.drawry`; marketing version `2.0.0`, build/versionCode `2`. Increment for subsequent uploads.
-- Minimum execution: iOS 17 and Android API 26. Build submission SDKs are independent of these minima.
-- iOS: Xcode 26+ with iOS 26+ SDK, automatic signing after selecting the owner's Apple team. [Apple SDK requirement](https://developer.apple.com/news/upcoming-requirements/?id=04282026a).
-- Android: compile/target SDK 36, JDK 17, Gradle 8.13; release signing from the four environment variables in README. [Google Play target API requirement](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en).
-- SQLCipher is pinned to 4.14.0 on both platforms. Android 4.19.0 requires compile SDK 37, so it is not used in this SDK-36 project. Future dependency upgrades require build and 16KB device checks.
-- Native library packaging must remain 16KB-compatible; validate final AAB/APK as well as execution. [Android page-size guidance](https://developer.android.com/guide/practices/page-sizes).
+프로젝트 설정: applicationId `com.poyal.drawry`, versionName `2.0.0`, versionCode `2`, minSdk 26, compile/target SDK 36, JDK 17, Gradle 8.13. 실제 출시 시 버전과 스토어 요구 사항을 다시 확인한다.
 
-## Owner-provided release inputs
+필요한 작업: 최종 콘셉트·런처 아이콘 확정, 앱 화면 구현, 실기기·접근성·백업/복원 검증, 16KB 네이티브 라이브러리 호환성 확인, Google Play 업로드 키·지원/개인정보 URL·설명·스크린샷 준비.
 
-Apple Developer team and provisioning, Google Play upload keystore, store records, support/privacy-policy URLs, final app icon and store screenshots are required before publication. No credentials are committed and no store upload is performed by the build workflows. Existing app icon artwork is retained pending final release artwork.
+운영 서명은 README의 네 가지 환경 변수로 제공한다. 저장소에 인증 정보를 넣지 않는다. 현재 단색 D 아이콘은 개발용 임시 자산이다. 앱에 계정·서버·분석이 없는 실제 구현과 명시적 공유·카메라/마이크 사용을 기준으로 데이터 공개 문구를 작성한다.
 
-App Store privacy / Play Data Safety declarations must describe the shipped app: device-local diaries and on-demand user sharing, no backend/accounts/analytics. Camera/microphone permissions are used only on capture. Photo library selection uses system pickers. The iOS privacy manifest declares used disk-space and uptime APIs. Confirm declarations against the final dependency inventory and store forms at submission time.
-
-The iOS encryption declaration is explicitly present in Info.plist. Complete the App Store Connect export-compliance questionnaire for the actual distributed encryption implementation before submitting; do not treat the project flag alone as the completed submission process.
-
-## Release gates
-
-Brand/UI work is still open: final launcher icon, intro/onboarding, consistent buttons and in-screen icons, and screen-level visual polish. Track acceptance in [TODO.md](../TODO.md); do not treat existing icon concepts or local QA screenshots as final store assets.
-
-`VALIDATION_STATUS.md` lists executed checks. In addition, complete `docs/acceptance.md` on physical devices, run iOS build/tests with full Xcode, archive with production signing, inspect signed bundles and submit to TestFlight / Play internal testing. Recheck store SDK policies at the actual submission date.
-
-The `.toolchain/` directory is a git-ignored local verification environment, not a runtime dependency or part of release artifacts.
+실제 실행 검증 결과는 [VALIDATION_STATUS](../VALIDATION_STATUS.md)를 참고한다. CI 설정 존재를 원격 검증 통과로 간주하지 않는다.

@@ -1,0 +1,18 @@
+Drawry 디자인 탐색 — 샘플 사진
+
+사진과 화면 속 기록은 디자인 비교를 위한 예시이며 사용자 데이터가 아닙니다.
+사진은 Lorem Picsum을 통해 제공되는 Unsplash 사진입니다.
+
+forest.jpg — Paul Jarvis
+https://unsplash.com/photos/6J--NXulQCs
+https://picsum.photos/id/10/1000/800
+
+coffee.jpg — Luke Chesser
+https://unsplash.com/photos/KR2mdHJ5qMg
+https://picsum.photos/id/42/800/1000
+
+coast.jpg — Oleg Chursin
+https://unsplash.com/photos/IoCWq07GaG4
+https://picsum.photos/id/43/800/600
+
+다운로드: 2026-10-19. 네트워크 없이 볼 수 있도록 로컬 파일로 포함했습니다.

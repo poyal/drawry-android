@@ -102,19 +102,6 @@ class CoreTest {
     }
 
     @Test
-    fun swiftBackup() = temp { dir ->
-        val folder = System.getenv("DRAWRY_FIXTURES") ?: return@temp
-        val file = File(folder, "swift.drawry")
-        if (!file.exists()) return@temp
-        val snapshot = Backup.restore(file, File(dir, "swift"), password = "테스트 암호1234")
-        assertEquals("한글 🌸", snapshot.diaries.first().headline)
-        assertEquals(4, snapshot.diaries.first().media.first().byteLength)
-        val ink = snapshot.diaries.first().media.first().edit.strokes
-        assertEquals("#78658F", ink.single().color)
-        assertEquals(listOf(InkPoint(.25, .25), InkPoint(.75, .75)), ink.single().points)
-    }
-
-    @Test
     fun validation() {
         assertFails { Diary().validate() }
         Diary().validate(allowEmpty = true)
