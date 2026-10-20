@@ -4,6 +4,7 @@
 
 ## 현재 상태
 
+- 사용자 지시로 GitHub Actions를 중지했다. `.github/workflows`에는 실행 파일을 두지 않으며, 기존 설정은 `.github/disabled-workflows/android.yml`에 보관한다. 사용자가 정책을 정해줄 때까지 자동·수동 워크플로를 새로 만들거나 다시 활성화하지 않는다.
 - iOS·기존 스케치북 UI·관련 디자인 자산·UI 테스트는 제거했다.
 - Android는 중립적인 재설계 안내 화면으로 실행하도록 구성했다. `MainActivity`는 `AppModel`을 생성하지 않으며 기존 저장소를 열지 않는다.
 - `AppModel`, `data/`, `InkCanvasView`, `core/`는 기능 재연결을 위해 보존했다.

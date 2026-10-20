@@ -37,7 +37,7 @@ HTML은 파일을 브라우저에서 직접 열면 됩니다. 사진·CSS·JavaS
 - `android/core/` — 데이터 모델·암호화·백업·낙서 좌표와 단위 테스트
 - `shared/` — Android 모듈에서 참조하는 암호화 규격·테스트 벡터·라이선스
 - `docs/design/` — 디자인 탐색 HTML, PDF, 로컬 사진과 출처
-- `.github/workflows/android.yml` — Android 빌드·lint·코어/저장소 검증 설정
+- `.github/disabled-workflows/android.yml` — 중지한 Android 검증 설정. 실행 정책을 정할 때까지 GitHub Actions를 활성화하지 않습니다.
 
 ## Android 개발
 

@@ -26,7 +26,7 @@ PDF: `docs/design/drawry-design-concepts.pdf`. HTML·PDF 기본 시안은 리넨
 
 ## Android — 실행 미검증
 
-- Android 전용 프로젝트·CI로 정리했다.
+- Android 전용 프로젝트로 정리했다. GitHub Actions는 이후 사용자 지시로 중지했으며, 워크플로를 `.github/disabled-workflows`로 이동했다. 저장소의 Actions 권한 설정은 변경하지 않았다.
 - 현재 시작 화면은 중립적인 재설계 안내 셸이다. 보존한 AppModel·저장소·미디어 로직은 아직 연결하지 않았다.
 - 현재 작업 환경에는 Android SDK와 프로젝트에 필요한 Gradle 8.13 배포본이 없다. 따라서 앱 빌드·lint·코어 및 기기 테스트는 실행하지 못했다.
 - XML 파싱 통과를 Android 리소스 컴파일 또는 앱 빌드 통과로 간주하지 않는다.

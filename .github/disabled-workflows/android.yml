@@ -1,3 +1,4 @@
+# Parked outside .github/workflows. Do not restore until the user defines a CI policy.
 name: Android validation
 on:
   push:
