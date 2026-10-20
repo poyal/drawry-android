@@ -1,6 +1,6 @@
-Drawry 디자인 탐색 — 샘플 사진
+Drawry 최종 디자인·디자인 기준 — 샘플 사진
 
-사진과 화면 속 기록은 디자인 비교를 위한 예시이며 사용자 데이터가 아닙니다.
+사진과 화면 속 기록은 최종 시안과 디자인 기준의 예시이며 사용자 데이터가 아닙니다.
 사진은 Lorem Picsum을 통해 제공되는 Unsplash 사진입니다.
 
 forest.jpg — Paul Jarvis
@@ -11,8 +11,8 @@ coffee.jpg — Luke Chesser
 https://unsplash.com/photos/KR2mdHJ5qMg
 https://picsum.photos/id/42/800/1000
 
-coast.jpg — Oleg Chursin
-https://unsplash.com/photos/IoCWq07GaG4
-https://picsum.photos/id/43/800/600
-
 다운로드: 2026-10-19. 네트워크 없이 볼 수 있도록 로컬 파일로 포함했습니다.
+
+print-coffee-ink.png / print-forest-ink.png
+위 coffee.jpg / forest.jpg와 시안의 SVG 손그림을 브라우저에서 함께 렌더링한 PDF 전용 이미지입니다.
+export-pdf.cjs로 재생성하며 원본 사진의 크기·비율을 유지합니다. 원본 사진 파일은 변경하지 않습니다.
