@@ -15,6 +15,8 @@
   };
   document.querySelectorAll('.mode-control button').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.mode)));
   applyMode('light');
+  const iconNames={backdrop:'바탕',cover:'스케치북 표지',sky:'사진 하늘',landscape:'사진 풍경',stroke:'붓선',paper:'링·종이'};
+  document.getElementById('icon-palette').innerHTML=Object.entries(ds.brand.icon.palette).map(([key,value])=>`<div class="icon-colour"><i style="background:${value}"></i><b>${iconNames[key]}</b><code>${value}</code></div>`).join('');
   document.getElementById('palette-pair').innerHTML=Object.entries(ds.palette).map(([mode,p])=>`<article class="palette-panel" style="--p-background:${p.background};--p-text:${p.text};--p-outline:${p.outline};--p-muted:${p.textSecondary};--p-action:${p.actionBackground};--p-action-text:${p.actionText}"><h3>${mode==='light'?'라이트':'다크'}</h3><div class="colour-grid">${Object.entries(names).map(([key,label])=>`<div class="colour"><i style="--swatch:${p[key]}"></i><b>${label}</b><code>${p[key]}</code></div>`).join('')}</div><span class="palette-button">저장</span><p>${mode==='light'?'회백색 바탕, 흰 종이, 테라코타 버튼.':'먹빛 바탕, 한 단계 밝은 종이, 부드러운 강조색.'}</p></article>`).join('');
   document.getElementById('type-rows').innerHTML=Object.entries(ds.typography).map(([key,t])=>`<tr><td>${t.label}</td><td>${t.size} / ${t.lineHeight}sp / ${t.weight}</td><td style="font-size:${t.size}px;line-height:${t.lineHeight}px;font-weight:${t.weight}">${key==='wordmark'?'drawry :)':key==='body'?'사진 위에 남긴 나의 이야기.':'조금 느리게 보낸 오후'}</td></tr>`).join('');
   document.getElementById('spacing-scale').innerHTML=ds.spacing.map(n=>`<span><i style="--space:${n}px"></i>${n}</span>`).join('');

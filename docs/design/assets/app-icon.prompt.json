@@ -1,0 +1,20 @@
+{
+  "title": "Drawry 최종 앱 아이콘 · 딸기 우유 스케치북",
+  "created": "2026-10-21",
+  "status": "사용자 승인 최종 원본",
+  "mode": "built-in imagegen edit",
+  "image": "app-icon.png",
+  "references": [
+    {
+      "role": "shape",
+      "description": "포켓 스케치북: 왼쪽 링 2개, 사진, 고리 모양 붓선. 탐색용 원본은 최종 정리 시 제거."
+    },
+    {
+      "role": "palette-only",
+      "description": "딸기 우유: 연한 핑크 바탕·표지와 진한 로즈 붓선. 탐색용 원본은 최종 정리 시 제거."
+    }
+  ],
+  "prompt": "Use case: precise-object-edit for the Drawry Android app icon.\nImage 1 is the EDIT TARGET: icon 17, a pocket sketchbook with two left binding rings, a framed landscape photo, and a loose looping brushstroke. Image 2 is a COLOR REFERENCE ONLY: the \"strawberry milk\" pink palette.\n\nCreate ONE standalone square app icon. Preserve image 1's composition and geometry faithfully: the notebook silhouette, dimensions, scale and position; exactly two chunky binding rings on the left; white paper edges on the right; the inset white photo border; the arrangement of clouds and rolling hills within the photo; the exact existing expressive looping brushstroke, including its path, thickness, texture and endpoints. Keep the soft matte paper material and gentle relief shadows.\n\nReplace all blue colors in image 1 with the soft strawberry milk pink palette from image 2:\n- pale milk pink backdrop, approximately #FFF0F6\n- soft strawberry pink notebook cover, approximately #F3B8D0\n- pale blush photo sky, approximately #FFE0EB\n- layered rose-pink landscape, approximately #F3B8D0 and #D88CA9\n- expressive brushstroke in deep rose pink, approximately #CE4F83\n- binding rings, page edges, photo border and clouds in milk white.\nUse soft neutral shadows and preserve definition so the white rings and photo border are readable. A polished, charming miniature paper sketchbook, delicate strawberry milk colors, crisp at icon size.\n\nDo not import the heart, tilted polaroid composition or frame geometry from image 2. Do not change the loop into a heart, letter or new symbol. No blue, brown, beige, orange, purple or black color scheme. No extra decorations, text, labels, grid, comparison sheet, device mockup or watermark. One icon only, with a full opaque pale pink square background.",
+  "approvedAt": "2026-10-21",
+  "sha256": "11488f0a29789640f6635e8e5ec0423775908d6605b12cbefc4cd2d04ef36c75"
+}
