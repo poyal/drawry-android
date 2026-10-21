@@ -1,18 +1,19 @@
-/* Drawry design baseline 1.1.0. Dimensions are Android dp; typography is sp.
+/* Drawry design baseline 1.2.0. Dimensions are Android dp; typography is sp.
    Browser studies use a separate, compressed presentation canvas. */
 (function (root) {
   'use strict';
   const tokens = {
-    version: '1.1.0',
+    version: '1.2.0',
     approvedAt: '2026-10-21',
     screensApprovedAt: '2026-10-20',
     direction: '18 / Two Little Things',
     brand: {
       icon: {
-        name: '딸기 우유 스케치북', source: 'assets/app-icon.png',
+        name: '리넨 스케치북', source: 'assets/app-icon.png',
         approvedAt: '2026-10-21', width: 1254, height: 1254,
-        // Art-direction references only; the approved textured PNG is authoritative.
-        palette: {backdrop: '#FFF0F6', cover: '#F3B8D0', sky: '#FFE0EB', landscape: '#D88CA9', stroke: '#CE4F83', paper: '#FFFFFF'}
+        // Cover matches light.surfaceSoft. Photo/ink swatches are representative
+        // colors from the approved PNG, which remains the visual source of truth.
+        palette: {backdrop: '#FFFFFF', cover: '#EEE2D9', sky: '#3AA7FD', landscape: '#326432', stroke: '#2C2C2C', paper: '#FFFFFF'}
       }
     },
     palette: {

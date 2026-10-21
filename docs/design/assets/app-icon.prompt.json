@@ -1,20 +1,20 @@
 {
-  "title": "Drawry 최종 앱 아이콘 · 딸기 우유 스케치북",
+  "title": "Drawry 최종 앱 아이콘 · 리넨 스케치북",
   "created": "2026-10-21",
   "status": "사용자 승인 최종 원본",
   "mode": "built-in imagegen edit",
   "image": "app-icon.png",
-  "references": [
-    {
-      "role": "shape",
-      "description": "포켓 스케치북: 왼쪽 링 2개, 사진, 고리 모양 붓선. 탐색용 원본은 최종 정리 시 제거."
-    },
-    {
-      "role": "palette-only",
-      "description": "딸기 우유: 연한 핑크 바탕·표지와 진한 로즈 붓선. 탐색용 원본은 최종 정리 시 제거."
-    }
-  ],
-  "prompt": "Use case: precise-object-edit for the Drawry Android app icon.\nImage 1 is the EDIT TARGET: icon 17, a pocket sketchbook with two left binding rings, a framed landscape photo, and a loose looping brushstroke. Image 2 is a COLOR REFERENCE ONLY: the \"strawberry milk\" pink palette.\n\nCreate ONE standalone square app icon. Preserve image 1's composition and geometry faithfully: the notebook silhouette, dimensions, scale and position; exactly two chunky binding rings on the left; white paper edges on the right; the inset white photo border; the arrangement of clouds and rolling hills within the photo; the exact existing expressive looping brushstroke, including its path, thickness, texture and endpoints. Keep the soft matte paper material and gentle relief shadows.\n\nReplace all blue colors in image 1 with the soft strawberry milk pink palette from image 2:\n- pale milk pink backdrop, approximately #FFF0F6\n- soft strawberry pink notebook cover, approximately #F3B8D0\n- pale blush photo sky, approximately #FFE0EB\n- layered rose-pink landscape, approximately #F3B8D0 and #D88CA9\n- expressive brushstroke in deep rose pink, approximately #CE4F83\n- binding rings, page edges, photo border and clouds in milk white.\nUse soft neutral shadows and preserve definition so the white rings and photo border are readable. A polished, charming miniature paper sketchbook, delicate strawberry milk colors, crisp at icon size.\n\nDo not import the heart, tilted polaroid composition or frame geometry from image 2. Do not change the loop into a heart, letter or new symbol. No blue, brown, beige, orange, purple or black color scheme. No extra decorations, text, labels, grid, comparison sheet, device mockup or watermark. One icon only, with a full opaque pale pink square background.",
+  "reference": {
+    "role": "edit-target",
+    "description": "흰 배경, 자연색 풍경 사진과 검정 붓선이 있는 스케치북 시안을 편집. 중간 색상 시안은 최종 정리 시 제거."
+  },
+  "coverColorReference": {
+    "source": "../design-tokens.js",
+    "token": "palette.light.surfaceSoft",
+    "value": "#EEE2D9"
+  },
+  "prompt": "Use case: precise-object-edit.\nAsset type: one standalone Drawry app icon color sample matched to the app's approved default LINEN UI theme.\nInput image 1 is the EDIT TARGET: a pink sketchbook on white, with a blue-sky green-mountain photo and a black looping brushstroke.\n\nChange ONLY the sketchbook COVER color to the app's existing light-theme surfaceSoft token #EEE2D9: a soft muted warm linen / light warm greige paper color. Match this color as the cover's base material, with realistic highlights and slightly deeper warm-neutral shading along the existing cover edges. It should read as an elegant natural paperboard artist's sketchbook, clearly distinguishable from the pure white surrounding background, white rings and white photo frame. Retain the subtle matte paper texture. No pink cast; no yellow cream, dark brown kraft, orange terracotta or green cover.\n\nPreserve all existing geometry and content faithfully: exact notebook silhouette, size, position, square framing and margins; exactly TWO WHITE binding rings on the left; WHITE page stack on the right; WHITE inset photo border; the SAME blue sky, white clouds, green mountains and forest in the photograph; the BLACK dry-brush looping stroke's path, endpoints, thickness, texture and placement. Do not recolor the photo or black stroke. Preserve subtle neutral-gray cast shadows and the visible cover/page thickness.\n\nThe outer background remains clean opaque WHITE (#FFFFFF). Change the cover only, using #EEE2D9 as the paper color direction. No new accents, decorative elements, extra rings, text, logos, watermark, comparison grid or device mockup. One square image only.",
   "approvedAt": "2026-10-21",
-  "sha256": "11488f0a29789640f6635e8e5ec0423775908d6605b12cbefc4cd2d04ef36c75"
+  "sha256": "5e9ea7e460ee34e1666e37e25caf019913af9d3eecb1dbb35c3286cd43b982f3",
+  "paletteNotes": "표지는 앱의 surfaceSoft #EEE2D9를 제작 기준으로 사용. 하늘·산·붓선의 가이드 색상은 승인 이미지의 대표색이며 사진 전체를 단색으로 재칠하지 않는다."
 }
